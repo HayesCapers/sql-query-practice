@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	h1 Classic Models
+	p We have cars and shit...
+
+	h1 #{cheese[0].productName}
+	p #{cheese[0].productDescription} ... Fuck You
+
+	h2 We've sold #{meat[0].tacos} on #{meat[0].freebird} different occasions... JEALOUS?
+
+	h3 Dont Believe me?
+	h3 Check the orders:
+	-for (let i = 0; i < cheese.length; i++)
+		a(href='/order/' + cheese[i].orderNumber)
+			li #{cheese[i].orderNumber}

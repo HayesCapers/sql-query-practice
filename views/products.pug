@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1 Classic Models
+	p We have cars and shit...
+	p #{products[0].textDescription}
+
+	-for (let i = 0; i < products.length; i++)
+		a(href='/products/' + products[i].productName)
+			li #{products[i].productName}
