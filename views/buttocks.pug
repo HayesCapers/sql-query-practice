@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	h1 Classic Models
+	p We have cars and shit...
+
+	h2 Order Details:
+	h3 Products:
+		-for (let i = 0; i < orderArray.length; i++)
+			h4 #{orderArray[i].productName}
+			ul
+				li Quantity: #{orderArray[i].quantityOrdered}
+				li Price per Unit: #{orderArray[i].priceEach}
+				li Total: $#{orderArray[i].quantityOrdered * orderArray[i].priceEach}
+	h3 Order Total:
+	-var counter = 0
+	- for (let i = 0; i < orderArray.length; i++)
+		-counter += orderArray[i].quantityOrdered * orderArray[i].priceEach
+	ul
+		li Order Total: $#{counter}	
+	h3 Order Status:
+	ul
+		li #{orderArray[0].status}		
+
+
+	h2 Customer Info:
+	ul
+		li Name: #{orderArray[0].customerName}
+		li City: #{orderArray[0].customerCity}
+		li Customer Number: #{orderArray[0].customerNumber}
+
+	h2 Sales Rep:
+	ul
+		li Name: #{orderArray[0].firstName} #{orderArray[0].lastName}
+		li Office: #{orderArray[0].city}
+		li Reports To: #{bossInfo[0].firstName} #{bossInfo[0].lastName}
+
+
